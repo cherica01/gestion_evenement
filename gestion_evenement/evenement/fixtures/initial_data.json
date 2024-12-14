@@ -1,0 +1,106 @@
+[
+  {
+    "model": "evenement.evenement",
+    "pk": 3,
+    "fields": {
+      "titre": "Hackathon IA",
+      "description": "Un hackathon pour explorer les technologies de l'intelligence artificielle.",
+      "lieu": "Espace Innovation - Bordeaux",
+      "date": "2024-12-18T09:00:00",
+      "capacite": 150,
+      "programme": "09h00 : Introduction\n10h00 : Développement des projets\n12h00 : Pause déjeuner\n14h00 : Présentation des projets",
+      "organisateur": 1
+    }
+  },
+  {
+    "model": "evenement.evenement",
+    "pk": 4,
+    "fields": {
+      "titre": "Séminaire Cloud Computing",
+      "description": "Séminaire sur les dernières innovations en cloud computing.",
+      "lieu": "Auditorium Centrale - Toulouse",
+      "date": "2024-12-22T11:00:00",
+      "capacite": 200,
+      "programme": "11h00 : Introduction au Cloud\n13h00 : Cas pratiques\n15h00 : Panel d'experts",
+      "organisateur": 1
+    }
+  },
+  {
+    "model": "evenement.evenement",
+    "pk": 5,
+    "fields": {
+      "titre": "Webinaire Sécurité Informatique",
+      "description": "Webinaire sur la sécurité des systèmes d'information.",
+      "lieu": "En ligne",
+      "date": "2024-12-25T18:00:00",
+      "capacite": 500,
+      "programme": "18h00 : Introduction\n18h30 : Conférence\n19h30 : Séance de questions-réponses",
+      "organisateur": 1
+    }
+  },
+  {
+    "model": "evenement.evenement",
+    "pk": 6,
+    "fields": {
+      "titre": "Formation Blockchain",
+      "description": "Formation approfondie sur la blockchain et ses applications.",
+      "lieu": "Bureau Paris - Paris",
+      "date": "2024-12-27T09:00:00",
+      "capacite": 60,
+      "programme": "09h00 : Introduction à la blockchain\n11h00 : Applications en entreprise\n13h00 : Pause déjeuner\n14h00 : Démonstrations",
+      "organisateur": 1
+    }
+  },
+  {
+    "model": "evenement.evenement",
+    "pk": 7,
+    "fields": {
+      "titre": "Salon Tech Innovante",
+      "description": "Salon pour découvrir les dernières innovations technologiques.",
+      "lieu": "Centre des Congrès - Paris",
+      "date": "2024-12-30T10:00:00",
+      "capacite": 1000,
+      "programme": "10h00 : Ouverture\n11h00 : Présentation des exposants\n14h00 : Conférences\n17h00 : Networking",
+      "organisateur": 1
+    }
+  },
+  {
+    "model": "evenement.evenement",
+    "pk": 8,
+    "fields": {
+      "titre": "Conférence UX/UI Design",
+      "description": "Conférence dédiée aux meilleures pratiques du design d'expérience utilisateur.",
+      "lieu": "Université des Arts - Paris",
+      "date": "2025-01-05T09:00:00",
+      "capacite": 80,
+      "programme": "09h00 : Accueil\n09h30 : Introduction au design UX/UI\n11h00 : Atelier pratique\n13h00 : Pause déjeuner\n14h00 : Présentation des projets",
+      "organisateur": 1
+    }
+  },
+  {
+    "model": "evenement.evenement",
+    "pk": 9,
+    "fields": {
+      "titre": "Rencontre Entrepreneuriat",
+      "description": "Rencontre avec des entrepreneurs et des investisseurs pour échanger sur l'avenir des startups.",
+      "lieu": "Cité des Entrepreneurs - Marseille",
+      "date": "2025-01-10T16:00:00",
+      "capacite": 120,
+      "programme": "16h00 : Introduction\n17h00 : Témoignages d'entrepreneurs\n18h00 : Séance de networking",
+      "organisateur": 1
+    }
+  },
+  {
+    "model": "evenement.evenement",
+    "pk": 10,
+    "fields": {
+      "titre": "Conférence Data Science",
+      "description": "Conférence sur les tendances récentes en data science et machine learning.",
+      "lieu": "Salle 500 - Lyon",
+      "date": "2025-01-12T08:30:00",
+      "capacite": 150,
+      "programme": "08h30 : Introduction\n09h00 : Conférence sur la data science\n12h00 : Pause déjeuner\n14h00 : Atelier pratique",
+      "organisateur": 1
+    }
+  }
+]

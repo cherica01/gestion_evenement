@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% load static %}
+    <style>
+        .login-bg {
+            background-image: url("{% static 'images/fond2.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Assurez-vous que la hauteur couvre tout l'écran */
+            width: 100%;
+        }
+    </style>
+
+</head>
+<body class="login-bg flex items-center justify-center min-h-screen">
+
+
+    <div class="bg-white shadow-md rounded-lg p-6 w-full max-w-sm">
+        <h1 class="text-2xl font-semibold text-gray-700 text-center mb-6">Connexion</h1>
+        <form method="POST" class="space-y-4" id="loginForm">
+            {% csrf_token %}
+            
+            {% if error %}
+                <p class="text-red-500 text-sm">{{ error }}</p>
+            {% endif %}
+            
+            <div id="errorContainer" class="hidden">
+                <p class="text-red-500 text-sm" id="errorMessage"></p>
+            </div>
+            
+            <div>
+                <label for="username" class="block text-gray-700 font-medium">Nom d'utilisateur</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300 focus:outline-none focus:border-blue-500" 
+                >
+            </div>
+            
+            <div>
+                <label for="password" class="block text-gray-700 font-medium">Mot de passe</label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300 focus:outline-none focus:border-blue-500" 
+                >
+            </div>
+
+            <button 
+                type="submit" 
+                class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-blue-300">
+                Se connecter
+            </button>
+        </form>
+    </div>
+
+    <script>
+        // Validation du formulaire
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            const username = document.getElementById("username");
+            const password = document.getElementById("password");
+            const errorContainer = document.getElementById("errorContainer");
+            const errorMessage = document.getElementById("errorMessage");
+            
+            let hasError = false;
+            errorMessage.textContent = ""; // Réinitialiser le message d'erreur
+            
+            if (username.value.trim() === "") {
+                hasError = true;
+                username.classList.add("border-red-500");
+                errorMessage.textContent += "Le champ Nom d'utilisateur est requis. ";
+            } else {
+                username.classList.remove("border-red-500");
+            }
+            
+            if (password.value.trim() === "") {
+                hasError = true;
+                password.classList.add("border-red-500");
+                errorMessage.textContent += "Le champ Mot de passe est requis.";
+            } else {
+                password.classList.remove("border-red-500");
+            }
+            
+            if (hasError) {
+                event.preventDefault(); // Empêcher la soumission du formulaire
+                errorContainer.classList.remove("hidden");
+            } else {
+                errorContainer.classList.add("hidden");
+            }
+        });
+    </script>
+
+</body>
+</html>

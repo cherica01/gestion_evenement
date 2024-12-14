@@ -1,0 +1,33 @@
+tml lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Participants</title>
+</head>
+<body>
+    <h1>Participants inscrits à l'événement : {{ evenement.titre }}</h1>
+
+    {% if participants.exists %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nom d'utilisateur</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for participant in participants %}
+                    <tr>
+                        <td>{{ participant.username }}</td>
+                        <td>{{ participant.email }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun participant inscrit à cet événement.</p>
+    {% endif %}
+
+    <a href="{% url 'organisateurs_page' %}">Retour à la liste des événements</a>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Participant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<header class="bg-[#2ba8c0] text-white py-4 shadow-md">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+        <h4 class="text-4xl font-semibold">Dashboard Participant E-EVENT</h4>
+        <span class="text-black text-2xl">Bienvenue, <strong>{{ user.username }}</strong></span>
+        <div class="flex items-center space-x-4">
+        
+            <!-- Icône de déconnexion -->
+            <a href="{% url 'logout' %}" class="text-white hover:text-gray-300 flex items-center space-x-2">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Déconnexion</span>
+            </a>
+        </div>
+    </div>
+</header>
+<body class="bg-[#DAF7A6] text-gray-800 flex flex-col min-h-screen">
+
+    <main class="flex-grow container mx-auto px-4 py-8 flex space-x-6">
+        <!-- Cartes des événements -->
+        <div class="w-3/4 grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {% for evenement in evenements %}
+                <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
+                    <h3 class="text-2xl font-semibold text-gray-800">{{ evenement.titre }}</h3>
+                    <p class="text-sm text-gray-600 mb-2 flex items-center">
+                        <i class="fas fa-calendar-alt text-blue-600 mr-2"></i>
+                        Date : {{ evenement.date }}
+                    </p>
+                    <p class="text-sm text-gray-600 mb-2">
+                        <i class="fas fa-map-marker-alt text-red-600 mr-2"></i>
+                        Lieu : {{ evenement.lieu }}
+                    </p>
+                    <p class="text-sm text-gray-600 mb-2">
+                        <i class="fas fa-users text-green-600 mr-2"></i>
+                        Capacité : {{ evenement.capacite }}
+                    </p>
+                    <p class="text-sm text-gray-600 mb-4">
+                        <i class="fas fa-info-circle text-yellow-600 mr-2"></i>
+                        Description : {{ evenement.description }}
+                    </p>
+                    <p class="text-sm text-gray-600 mb-4">
+                        <i class="fas fa-tasks text-purple-600 mr-2"></i>
+                        Programme : {{ evenement.programme }}
+                    </p>
+                    <div class="flex justify-center">
+                        {% if evenement.est_inscrit %}
+                            <a href="{% url 'desinscrire_evenement' evenement.id %}" 
+                               class="px-4 py-2 border border-red-500 text-red-500 rounded hover:bg-red-500 hover:text-white transition">
+                                Se désinscrire
+                            </a>
+                        {% else %}
+                            <a href="{% url 'inscrire_evenement' evenement.id %}" 
+                               class="px-4 py-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-500 hover:text-white transition">
+                                S'inscrire
+                            </a>
+                        {% endif %}
+                    </div>
+                    
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Notifications et rappels -->
+        <!-- Notifications et rappels -->
+<div class="w-1/4">
+    <h2 class="text-3xl font-semibold text-blue-800 mb-4">Vos Notifications et Rappels</h2>
+    <ul class="space-y-4">
+        {% for notification in notifications %}
+            <li class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                <p>
+                    <strong>{{ notification.date_creation|date:"d/m/Y H:i" }}</strong>: 
+                    {% if notification.est_rappel %}
+                        <span class="text-orange-500 font-semibold">[Rappel]</span>
+                    {% endif %}
+                    {{ notification.message }}
+                </p>
+                <p class="text-sm text-gray-600">
+                    <i class="fas fa-calendar-alt text-blue-600 mr-2"></i>
+                    Événement : <strong>{{ notification.evenement.titre }}</strong>
+                </p>
+            </li>
+        {% empty %}
+            <li class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                <p>Aucune notification pour le moment.</p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+    </main>
+    <footer class="bg-gray-800 text-white py-8 mt-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+                <!-- Section Informations -->
+                <div>
+                    <h5 class="text-lg font-bold mb-3">À propos</h5>
+                    <p class="text-sm">
+                        E-EVENT est une plateforme dédiée à la gestion des événements pour les participants et organisateurs.
+                    </p>
+                </div>
+    
+                <!-- Section Liens rapides -->
+                
+            
+    
+                <!-- Section Contact -->
+                <div>
+                    <h5 class="text-lg font-bold mb-3">Contact</h5>
+                    <p class="text-sm">Email : devoirmethodeagile@.com</p>
+                    <p class="text-sm">Téléphone : +261 33 456 89</p>
+                    <div class="mt-3">
+                        <a href="#" class="text-gray-300 hover:text-white mr-3"><i class="fab fa-facebook"></i> Facebook</a>
+                        <a href="#" class="text-gray-300 hover:text-white mr-3"><i class="fab fa-twitter"></i> Twitter</a>
+                        <a href="#" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="border-t border-gray-700 mt-6 pt-4 text-center">
+                <p class="text-sm">© 2024 Dashboard Participant. Tous droits réservés.</p>
+                <p class="text-sm">
+                    <a href="#" class="text-gray-300 hover:text-white">Politique de confidentialité</a> | 
+                    <a href="#" class="text-gray-300 hover:text-white">Conditions d'utilisation</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+
+</body>
+</html>

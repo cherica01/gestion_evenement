@@ -1,0 +1,75 @@
+[
+    {
+        "model": "evenement.customuser",
+        "pk": 1,
+        "fields": {
+            "username": "organisateur1",
+            "password": "$2b$12$6u4pAKDNgEZa0txLZAEhPOt2wtDS50qFD8dnEYI.y7zEY5QYyVFni",
+            "role": "organisateur",
+            "is_superuser": false,
+            "is_staff": true ,
+             "email":"part1@gmail.com"
+        }
+    },
+    {
+        "model": "evenement.customuser",
+        "pk": 4,
+        "fields": {
+            "username": "rakoto",
+            "password": "$2b$12$6u4pAKDNgEZa0txLZAEhPOt2wtDS50qFD8dnEYI.y7zEY5QYyVFni",
+            "role": "participant",
+            "is_superuser": false,
+            "is_staff": false ,
+             "email":"rakoto@gmail.com"
+        }
+    },
+    {
+        "model": "evenement.customuser",
+        "pk": 3,
+        "fields": {
+            "username": "lita",
+            "password": "$2b$12$6u4pAKDNgEZa0txLZAEhPOt2wtDS50qFD8dnEYI.y7zEY5QYyVFni",
+            "role": "participant",
+            "is_superuser": false,
+            "is_staff": false ,
+             "email":"lita@gmail.com"
+        }
+    },
+    {
+        "model": "evenement.customuser",
+        "pk": 5,
+        "fields": {
+            "username": "lovasoa",
+            "password": "$2b$12$6u4pAKDNgEZa0txLZAEhPOt2wtDS50qFD8dnEYI.y7zEY5QYyVFni",
+            "role": "participant",
+            "is_superuser": false,
+            "is_staff": false ,
+             "email":"lovasoa@gmail.com"
+        }
+    },
+    {
+        "model": "evenement.customuser",
+        "pk": 6,
+        "fields": {
+            "username": "zoky",
+            "password": "$2b$12$6u4pAKDNgEZa0txLZAEhPOt2wtDS50qFD8dnEYI.y7zEY5QYyVFni",
+            "role": "participant",
+            "is_superuser": false,
+            "is_staff": false ,
+             "email":"zoky@gmail.com"
+        }
+    },
+    {
+        "model": "evenement.customuser",
+        "pk": 2,
+        "fields": {
+            "username": "participant1",
+            "password": "$2b$12$6u4pAKDNgEZa0txLZAEhPOt2wtDS50qFD8dnEYI.y7zEY5QYyVFni",
+            "role": "participant",
+            "is_superuser": false,
+            "is_staff": false,
+            "email":"part1@gmail.com"
+        }
+    }
+    
+]
